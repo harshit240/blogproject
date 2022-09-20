@@ -34,5 +34,25 @@ class AdminController{
         // console.log(data);
         res.render('admin/blog/blogview',{viewdata:data})
     }
+    static BlogEdit = async(req,res)=>{
+        // console.log(req.params.id); 
+        const data = await BlogModel.findById(req.params.id)
+        // console.log(data);
+        res.render('admin/blog/blogedit',{editdata:data})
+    }
+    static BlogUpdate = async(req,res)=>{
+        // console.log(req.body);
+        // console.log(req.params.id);
+        try{
+            const data = await BlogModel.findByIdAndUpdate(req.params.id,{
+                title:req.body.title,
+                description:req.body.description
+            })
+            await data.save()
+            res.redirect('/admin/blog')   
+        }catch(err){
+              console.log(err);  
+        }
+    }
 }
-module.exports=AdminController
+module.exports = AdminController

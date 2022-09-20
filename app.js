@@ -44,6 +44,8 @@ app.get('/admin/blog',AdminController.blogs)
 app.get('/admin/addblogs',AdminController.addblogs)
 app.post('/admin/insert_blog',AdminController.insertblog)
 app.get('/admin/blog_view/:id',AdminController.BlogView)
+app.get('/admin/blog_edit/:id',AdminController.BlogEdit)
+app.post('/admin/blog_update/:id',AdminController.BlogUpdate)
 
 
 //Admin category controller
