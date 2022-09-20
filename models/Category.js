@@ -1,19 +1,19 @@
 const mongoose = require('mongoose')
 
 const Categoryschema = new mongoose.Schema({ // Categoryschema => object
-    title:{   // Field
+    title:{   // Fields
         type:String,
         Required:true
     },
-    description:{  // Field
+    description:{  // Fields
         type:String,
         Required:true
     },
-    name:{  // Field
+    name:{  // Fields
         type:String,
         Required:true
     },
-    email:{  // Field
+    email:{  // Fields
         type:String,
         Required:true
     }
