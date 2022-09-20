@@ -2,11 +2,21 @@ const CategoryModel = require('../../models/Category')
 
 class CategoryController{
     static CategoryDisplay = async(req,res)=>{
-        res.render('admin/category/categorydisplay')
+        const data = await CategoryModel.find()
+        // console.log(data);
+        res.render('admin/category/categorydisplay',{d:data})
     }
     static CreateCategory = async(req,res)=>{
         res.render('admin/category/createcategory')
     }
+    static viewcategory = async(req,res)=>{
+        
+        // console.log(req.params.id); 
+        const data = await CategoryModel.findById(req.params.id)
+        // console.log(data);
+        res.render('admin/category/viewcategory',{viewdata:data})
+    }
+
     static CategoryInsert = async(req,res)=>{
         // console.log(req.body);
         try{
@@ -23,5 +33,6 @@ class CategoryController{
             console.log(err);
         }
     }
+    
 }
 module.exports = CategoryController

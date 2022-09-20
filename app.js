@@ -17,6 +17,7 @@ const FrontendController = require('./controllers/FrontendController')
 //Database connection
 const connectDB = require('./db/connectdb')
 const CategorController = require('./controllers/admin/CategoryController')
+const CategoryController = require('./controllers/admin/CategoryController')
 connectDB()
 
 
@@ -29,12 +30,12 @@ app.use(express.static('public'))
 
 //Front end controller
 app.get('/',FrontendController.home)
-app.get('/contact',FrontendController.contact)
-app.get('/login',FrontendController.login)
-app.get('/bloglist',FrontendController.bloglist)
-app.get('/blogdetail',FrontendController.blogdetail)
-app.get('/home',FrontendController.home)
-app.get('/about',FrontendController.about)
+// app.get('/contact',FrontendController.contact)
+// app.get('/login',FrontendController.login)
+// app.get('/bloglist',FrontendController.bloglist)
+// app.get('/blogdetail',FrontendController.blogdetail)
+// app.get('/home',FrontendController.home)
+// app.get('/about',FrontendController.about)
 
 
 //Admin controller
@@ -49,7 +50,7 @@ app.get('/admin/blog_view/:id',AdminController.BlogView)
 app.get('/admin/category',CategorController.CategoryDisplay)
 app.get('/admin/createcategory',CategorController.CreateCategory)
 app.post('/admin/categoryinsert',CategorController.CategoryInsert)
-
+app.get('/admin/viewcategory/:id',CategoryController.viewcategory)
 
 
 
