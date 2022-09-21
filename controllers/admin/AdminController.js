@@ -53,9 +53,9 @@ class AdminController{
                 description:req.body.description
             })
             await data.save()
-            res.redirect('/admin/blog')   
+            res.redirect('/admin/blog')   // ' ' => route url
         }catch(err){
-              console.log(err);  
+            console.log(err);  
         }
     }
 }

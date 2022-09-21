@@ -1,3 +1,4 @@
+const BlogModel = require('../../models/Blog')
 const CategoryModel = require('../../models/Category')
 
 class CategoryController{
@@ -33,6 +34,29 @@ class CategoryController{
             console.log(err);
         }
     }
+    static EditCategory = async(req,res)=>{
+        // console.log(req.params.body);
+        const data = await CategoryModel.findById(req.params.id)
+        // console.log(data);
+        res.render('admin/category/categoryedit',{editdata:data})        
+    }
+    static UpdateCategory = async(req,res)=>{
+        // console.log(req.body);
+        try{
+            const result = await CategoryModel.findByIdAndUpdate(req.params.id,{
+                title:req.body.title,
+                description:req.body.description,
+                name:req.body.name,
+                email:req.body.email
+            })
+            
+            await result.save()
+            res.redirect('/admin/category')  
+        }catch(err){
+            console.log(err);
+        }
+    }
+
     
 }
 module.exports = CategoryController

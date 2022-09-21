@@ -53,7 +53,8 @@ app.get('/admin/category',CategorController.CategoryDisplay)
 app.get('/admin/createcategory',CategorController.CreateCategory)
 app.post('/admin/categoryinsert',CategorController.CategoryInsert)
 app.get('/admin/viewcategory/:id',CategoryController.viewcategory)
-
+app.get('/admin/Editcategory/:id',CategorController.EditCategory)
+app.post('/admin/updatecategory/:id',CategorController.UpdateCategory)
 
 
 
