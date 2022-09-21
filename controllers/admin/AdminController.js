@@ -30,9 +30,13 @@ class AdminController{
     }
     static BlogView = async(req,res)=>{
         // console.log(req.params.id); 
-        const data = await BlogModel.findById(req.params.id)
-        // console.log(data);
-        res.render('admin/blog/blogview',{viewdata:data})
+        try{
+            const data = await BlogModel.findById(req.params.id)
+            // console.log(data);
+            res.render('admin/blog/blogview',{viewdata:data})
+        }catch(err){
+            console.log(err);
+        }
     }
     static BlogEdit = async(req,res)=>{
         // console.log(req.params.id); 
