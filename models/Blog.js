@@ -9,7 +9,7 @@ const Blogschema = new mongoose.Schema({ // Blogschema => object
         type:String,
         Required:true
     }
-})
+},{timestamps:true})
 const BlogModel = mongoose.model('blog',Blogschema)  //BlogModel => model and blog => collection 
 
 module.exports=BlogModel

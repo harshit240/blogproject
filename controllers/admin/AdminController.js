@@ -58,5 +58,10 @@ class AdminController{
             console.log(err);  
         }
     }
+    static DeleteBlog = async(req,res)=>{
+        // console.log(req.params.id);
+        const result = await BlogModel.findByIdAndDelete(req.params.id)
+        res.redirect('/admin/blog')
+    }
 }
 module.exports = AdminController

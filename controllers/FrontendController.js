@@ -1,7 +1,16 @@
+const BlogModel = require("../models/Blog")
+
 class FrontendController{
     
     static home = async(req,res)=>{
-        res.render('front/home')
+        try{
+            const blog_data = await BlogModel.find()
+            console.log(blog_data);
+            res.render('front/home',{d:blog_data})
+        }catch(err){
+            console.log(err);
+        }
+
     }
     static about = async(req,res)=>{
         res.render('front/about')
