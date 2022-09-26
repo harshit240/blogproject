@@ -56,6 +56,11 @@ class CategoryController{
             console.log(err);
         }
     }
+    static DeleteCategory = async(req,res)=>{
+        // console.log(req.body);
+        const data = await CategoryModel.findByIdAndDelete(req.params.id)
+        res.redirect('/admin/category')
+    }
 
     
 }

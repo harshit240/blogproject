@@ -39,6 +39,7 @@ router.post('/admin/categoryinsert',CategorController.CategoryInsert)
 router.get('/admin/viewcategory/:id',CategorController.viewcategory)
 router.get('/admin/Editcategory/:id',CategorController.EditCategory)
 router.post('/admin/updatecategory/:id',CategorController.UpdateCategory)
+router.get('/admin/deletecategory/:id',CategorController.DeleteCategory)
 
 
 module.exports = router
