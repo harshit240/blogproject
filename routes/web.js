@@ -15,7 +15,7 @@ router.get('/',FrontendController.home)
 router.get('/contact',FrontendController.contact)
 router.get('/login',FrontendController.login)
 router.get('/bloglist',FrontendController.bloglist)
-router.get('/blogdetail',FrontendController.blogdetail)
+router.get('/blogdetail/:_id',FrontendController.blogdetail)
 router.get('/home',FrontendController.home)
 router.get('/about',FrontendController.about)
 
