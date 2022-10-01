@@ -27,7 +27,6 @@ class CategoryController{
                 name:req.body.name,
                 email:req.body.email
             })
-            
             await result.save()
             res.redirect('/admin/category')  // ' ' => route url
         }catch(err){

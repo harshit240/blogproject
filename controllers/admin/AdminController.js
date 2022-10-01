@@ -1,5 +1,12 @@
+var cloudinary = require('cloudinary').v2;
 const BlogModel = require('../../models/Blog') 
-const TeacherModel = require('../../models/Teacher')
+
+cloudinary.config({ 
+    cloud_name: 'dqowaxfln', 
+    api_key: '456697836426261', 
+    api_secret: 'Fnb8mKrkYZrTaeS71e-YpnssgDo',
+    secure: true
+  });
 
 class AdminController{
     
@@ -16,12 +23,22 @@ class AdminController{
         res.render('admin/blog/addblogs')
     }
     static insertblog = async(req,res)=>{
-        // console.log(req.body.title);
+        // console.log(req.body);
+        // console.log(req.files);
+        const imagefile = req.files.blog_image
+        // console.log(imagefile);
+        const image_upload = await cloudinary.uploader.upload(imagefile.tempFilePath,{
+            folder:'blog_image',
+            width:400,
+        })
         try{
+            const{title,description}=req.body
             const result = new BlogModel({
                 title:req.body.title,
-                description:req.body.description
+                description:req.body.description,
+                image:image_upload.secure_url
             })
+            //saving data
             await result.save()
             res.redirect('/admin/blog')  // ' ' => route url
         }catch(err){

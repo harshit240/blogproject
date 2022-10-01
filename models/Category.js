@@ -17,7 +17,7 @@ const Categoryschema = new mongoose.Schema({ // Categoryschema => object
         type:String,
         Required:true
     }
-})
+},{timestamps:true})
 const CategoryModel = mongoose.model('category',Categoryschema)  //CategoryModel => model and blog => collection 
 
 module.exports=CategoryModel

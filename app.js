@@ -2,6 +2,11 @@ const express = require('express')
 const app = express()
 const port = 2300
 const web = require('./routes/web')
+const fileUpload = require("express-fileupload");
+//Temp file uploader
+app.use(fileUpload({useTempFiles: true}));
+//Required Cloudinary
+var cloudinary = require('cloudinary');
 
 //Body-Parse require
 const bodyParser = require('body-parser')

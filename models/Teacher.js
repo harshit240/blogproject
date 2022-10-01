@@ -13,7 +13,7 @@ const TeacherSchema = new mongoose.Schema({
         type:String,
         Required:true
     }
-})
+},{timestamps:true})
 const TeacherModel = mongoose.model('teach',TeacherSchema)
 
 module.exports = TeacherModel
