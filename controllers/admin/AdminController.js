@@ -1,4 +1,4 @@
-var cloudinary = require('cloudinary').v2;
+const cloudinary = require('cloudinary').v2;
 const BlogModel = require('../../models/Blog') 
 
 cloudinary.config({ 
@@ -36,7 +36,11 @@ class AdminController{
             const result = new BlogModel({
                 title:req.body.title,
                 description:req.body.description,
-                image:image_upload.secure_url
+                image: {
+                    public_id: image_upload.public_id,
+                    url: image_upload.secure_url,
+                },
+
             })
             //saving data
             await result.save()

@@ -10,7 +10,7 @@
                         <p>by <span>PNINFOSYS</span> on <span><%= d.createdAt.toLocaleDateString() %></span></p>
                     </div>
                     <div class="detail-img">
-                       <img src="/assets/images/img1.jpg" alt="blog1" />
+                       <img src="<%= d.image.url %>" alt="blog1" height="426" width="640"/>
                     </div>
                     <div class="blog-desc">
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
@@ -22,18 +22,19 @@
                 <div class="blog-right">
                     <div class="right-widget recent-post">
                         <h3>Recent Blogs</h3>
+                    <% r.forEach((rblog)=>{ %>
                         <a href="#">
                             <div class="rb-box">
                                 <div class="rb-box-img">
-                                    <img src="/assets/images/img1.jpg" alt="blog1" />
+                                    <img src="<%= rblog.image.url %>" alt="blog1" />
                                 </div>
                                 <div class="rb-box-desc">
-                                    <h4>Sample blog post 1</h4>
-                                    <p>Posted On: October 22, 2018</p>
+                                    <h4><%= rblog.title.slice(0,50) %></h4>
+                                    <p><%= rblog.createdAt.toLocaleDateString() %></p>
                                 </div>
                             </div>
                         </a>
-                        
+                    <% }) %>
                     </div>
                      <div class="right-widget categories">
                          <h3>Categories</h3>

@@ -9,10 +9,16 @@ const Blogschema = new mongoose.Schema({ // Blogschema => object
         type:String,
         Required:true
     },
-    image:{  // Field
-        type:String,
-        Required:true
-    }
+    image: {
+        public_id: {
+          type: String,
+          required: true,
+        },
+        url: {
+          type: String,
+          required: true,
+        },
+      },
 },{timestamps:true})
 const BlogModel = mongoose.model('blog',Blogschema)  //BlogModel => model and blog => collection 
 

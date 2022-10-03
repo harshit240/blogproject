@@ -17,7 +17,7 @@
                 <% d.forEach((item)=>{ %>
                 <div class="col-md-4">
                     <div class="blog-box">
-                        <img src="assets/images/img1.jpg" alt="blog1" />
+                        <img src="<%= item.image.url %>" width="350px" height="250px" alt="blog1" />
                         <h3><%= item.title %></h3>
                         <p><%= item.createdAt.toLocaleDateString() %></p>
                         <p><%= item.description.slice(0,100) %></p>
