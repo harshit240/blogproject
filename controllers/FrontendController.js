@@ -17,6 +17,7 @@ class FrontendController{
         res.render('front/about')
     }
     static contact = async(req,res)=>{
+        console.log(req.body);
         res.render('front/contact')
     }
     static blogdetail = async(req,res)=>{
@@ -33,7 +34,13 @@ class FrontendController{
         }
     }
     static bloglist = async(req,res)=>{
-        res.render('front/bloglist')
+        try{
+            const blogs = await BlogModel.find()
+            console.log(blogs);
+            res.render('front/bloglist',{r:blogs})
+        }catch(err){
+            console.log(err);
+        }
     }
     static login = async(req,res)=>{
         res.render('front/login')
