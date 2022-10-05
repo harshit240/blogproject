@@ -1,3 +1,38 @@
+body::-webkit-scrollbar{
+    width: 12px;
+}
+body::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background: #f5f5f5;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0,0.3);
+}
+body::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: #81919e;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0,0.3);
+}
+body::-webkit-scrollbar-corner{
+    border-radius: 10px;
+    background: linear-gradient(red,yellow);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0,0.3);
+}
+/* =================== */
+/* About Page section CSS */
+.about_heading span{
+    border-bottom: 3px solid #22ff85;
+}
+.readmorebtn{
+    margin-right: 32px;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 20px;
+    letter-spacing: 1px;
+    background: #386576;
+}
+
+
+
+
 h1 {font-size: 2.4rem;margin-bottom: 30px;}
 .bg-blue {background-color:#007EDB;}
 .navbar-brand img { height:30px; }
@@ -49,6 +84,25 @@ h1 {font-size: 2.4rem;margin-bottom: 30px;}
 .table img { width:80px; }
 .action a {margin:0 5px;}
 
+.social-icons a{
+    padding: 8px 93px;
+    background: #003a50;
+    color: #fff;
+    font-size: 35px;
+}
+.social-icons a i:hover,.social-icons a i.active{
+    color: orange;
+    transition: 0.5s ease;
+}
+.banner{
+    background-image: url(/assets/images/banner2.jpg);
+    width: 100%;
+    height: 580px;
+    background-size: cover;
+}
+.social-icons{
+    padding: 0;
+}
 footer {background-color: #000;color:#fff; padding:20px;}
 
 /*validation*/
