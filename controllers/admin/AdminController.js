@@ -69,9 +69,23 @@ class AdminController{
         // console.log(req.body);
         // console.log(req.params.id);
         try{
+            const user = await BlogModel.findById(req.params.id)
+            const image_id = user.image.public_id;
+            // console.log(image_id);
+            await cloudinary.uploader.destroy(image_id)
+            const imagefile = req.files.blog_image
+
+            const image_upload = await cloudinary.uploader.upload(imagefile.tempFilePath,{
+                folder:'blog_image',
+                width:400,
+            })
             const data = await BlogModel.findByIdAndUpdate(req.params.id,{
                 title:req.body.title,
-                description:req.body.description
+                description:req.body.description,
+                image: {
+                    public_id: image_upload.public_id,
+                    url: image_upload.secure_url,
+                },
             })
             await data.save()
             res.redirect('/admin/blog')   // ' ' => route url
@@ -80,9 +94,16 @@ class AdminController{
         }
     }
     static DeleteBlog = async(req,res)=>{
-        // console.log(req.params.id);
-        const result = await BlogModel.findByIdAndDelete(req.params.id)
-        res.redirect('/admin/blog')
+        try{
+            const user = await BlogModel.findById(req.params.id)
+            const image_id = user.image.public_id;
+            // console.log(image_id);
+            await cloudinary.uploader.destroy(image_id)
+            const result = await BlogModel.findByIdAndDelete(req.params.id)
+            res.redirect('/admin/blog')
+        }catch(err){
+            console.log(err);
+        }
     }
 }
 module.exports = AdminController

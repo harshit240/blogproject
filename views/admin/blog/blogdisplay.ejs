@@ -18,8 +18,8 @@
                                 </div>
                             </div>
                             <table class="table table-bordered table-striped">
-                                <tr>
-                                    <th>#ID</th>
+                                <tr style="background-color: #029477; color: white;" class="table text-center">
+                                    <th>ID No.</th>
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Image</th>
@@ -41,9 +41,9 @@
                                         </td>
                                         <td>
                                             <a href="/admin/blog_view/<%= item._id %>"
-                                                class="btn btn-success btn-sm">View</a>
-                                            <a href="/admin/blog_edit/<%= item._id %>" class="btn btn-info btn-sm">Edit</a>
-                                            <a href="/admin/delete_blog/<%= item._id %>" class="btn btn-danger btn-sm">Delete</a>
+                                                class="btn btn-danger btn-sm action-btn"><i class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/blog_edit/<%= item._id %>" class="btn btn-info btn-sm action-btn" ><i class="fa-regular fa-pen-to-square"></i></a>
+                                            <a href="/admin/delete_blog/<%= item._id %>" class="btn btn-danger btn-sm action-btn" ><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     <% }) %>

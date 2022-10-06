@@ -3,6 +3,7 @@ const router = express.Router()
 const AdminController = require('../controllers/admin/AdminController')
 const FrontendController = require('../controllers/FrontendController')
 const CategorController = require('../controllers/admin/CategoryController')
+const UserController = require('../controllers/UserController')
 
 
 
@@ -12,12 +13,13 @@ const CategorController = require('../controllers/admin/CategoryController')
 
 //Front end controller
 router.get('/',FrontendController.home)
-router.get('/contact',FrontendController.contact)
-router.get('/login',FrontendController.login)
-router.get('/bloglist',FrontendController.bloglist)
-router.get('/blogdetail/:_id',FrontendController.blogdetail)
 router.get('/home',FrontendController.home)
+router.get('/bloglist',FrontendController.bloglist)
+router.get('/login',FrontendController.login)
 router.get('/about',FrontendController.about)
+router.get('/blogdetail/:_id',FrontendController.blogdetail)
+router.get('/contact',FrontendController.contact)
+router.post('/addcontact',FrontendController.addcontact)
 
 
 //Admin controller
@@ -41,5 +43,7 @@ router.get('/admin/Editcategory/:id',CategorController.EditCategory)
 router.post('/admin/updatecategory/:id',CategorController.UpdateCategory)
 router.get('/admin/deletecategory/:id',CategorController.DeleteCategory)
 
+// UserController
+router.get('/admin/register',UserController.AdminRegister)
 
 module.exports = router
