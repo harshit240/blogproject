@@ -8,6 +8,18 @@ app.use(fileUpload({useTempFiles: true}));
 //Required Cloudinary
 var cloudinary = require('cloudinary');
 
+var session = require('express-session')
+var flash = require('connect-flash');
+//messages
+app.use(session({
+    secret: 'secret',
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false,
+    
+  }));
+  app.use(flash());
+
 //Body-Parse require
 const bodyParser = require('body-parser')
 

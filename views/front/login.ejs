@@ -6,6 +6,11 @@
                 <div class="col-md-6 mt-5">
                     <div class="login-box ">
                         <h1><span style="color:orange;">ADMIN</span> LOGIN</h1>
+                        <% if(message.length > 0){ %>
+                            <div class="alert alert-danger">
+                                <%= message %>
+                            </div>
+                        <% } %>
                         <p class="text-center text-white">GREAT TO HAVE YOU BACK</p>
                         <form action="" class="pt-4">
                             <div class="form-group log mb-4">
@@ -18,7 +23,7 @@
                                 <a href="#" class="btn btn-danger">Log In</a>
                                 <br>
                                 <div class="mt-3">
-                                    <span class="text-white mt-3">DON`T HAVE AN ACCOUNT?</span><button class="btn reg"> REGISTER NOW</button>
+                                    <span class="text-white mt-3" >DON`T HAVE AN ACCOUNT?</span><a class="btn reg" href="/admin/register">&nbsp;REGISTER NOW</a>
                                 </div>
                             </div>
                         </form>

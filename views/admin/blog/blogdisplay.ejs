@@ -11,14 +11,14 @@
                         <div class="dash-right">
                             <div class="dash-header">
                                 <div class="dash-title">
-                                    <h1>Blogs</h1>
+                                    <h1 style="color: #386576;">Blogs</h1>
                                 </div>
                                 <div class="dash-nav">
-                                    <a href="/admin/addblogs" class="btn btn-success">Add Blog</a>
+                                    <a href="/admin/addblogs" class="btn btn-success" style="background-color: #ffa500; border: none;">Add Blog</a>
                                 </div>
                             </div>
-                            <table class="table table-bordered table-striped">
-                                <tr class="table_heading text-white text-center">
+                            <table class="table-bordered table-striped">
+                                <tr class=" table_heading text-white text-center">
                                     <th>ID No.</th>
                                     <th>Title</th>
                                     <th>Description</th>
@@ -37,7 +37,7 @@
                                             <%= item.description %>
                                         </td>
                                         <td>
-                                            <img src="<%= item.image.url %>" alt="">
+                                            <img src="<%= item.image.url %>" alt="" width="80px">
                                         </td>
                                         <td>
                                             <a href="/admin/blog_view/<%= item._id %>" class="btn btn-info btn-sm action-btn"><i class="fa-solid fa-eye"></i></a>
