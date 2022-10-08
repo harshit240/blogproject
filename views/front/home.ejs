@@ -15,7 +15,7 @@
                         <h3><%= item.title %></h3>
                         <p><%= item.createdAt.toLocaleDateString() %></p>
                         <p><%= item.description.slice(0,100) %></p>
-                        <a href="/blogdetail/<%= item._id %>" class="btn btn-primary">Read more...</a>
+                        <a href="/blogdetail/<%= item._id %>" class="btn" style="background-color: #f79d16; color: #ffff;">Read more...</a>
                     </div>
                 </div>
                 <% }) %>

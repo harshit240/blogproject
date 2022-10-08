@@ -18,8 +18,8 @@
                             </div>
                         </div>
                         <table class="table table-bordered table-striped">
-                            <tr>
-                                <th>#ID</th>
+                            <tr class="table_heading text-center">
+                                <th>ID No.</th>
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Action</th>
@@ -37,10 +37,10 @@
                                     </td>
                                     <td>
                                         <a href="/admin/viewcategory/<%= item._id %>"
-                                            class="btn btn-success btn-sm">View</a>
+                                            class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
                                         <a href="/admin/Editcategory/<%= item._id %>"
-                                            class="btn btn-info btn-sm">Edit</a>
-                                        <a href="/admin/deletecategory/<%=item._id %>" class="btn btn-danger btn-sm">Delete</a>
+                                            class="btn btn-info btn-sm"><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <a href="/admin/deletecategory/<%=item._id %>" class="btn btn-info btn-sm"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 <% }) %>
