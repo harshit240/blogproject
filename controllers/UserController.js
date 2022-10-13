@@ -42,6 +42,21 @@ class UserController{
             return res.redirect('/admin/register')
         }
     }
+
+    }
+
+    static Verify_login = async(req,res)=>{
+        try{
+            const{email,password}=req.body;
+            if(email && password){
+
+            }else{
+                req.flash('error','All Fields Required')
+                    return res.redirect('/login')
+            }
+        }catch(err){
+            console.log(err);
+        }
     }
 }
 module.exports=UserController

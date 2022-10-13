@@ -46,5 +46,6 @@ router.get('/admin/deletecategory/:id',CategorController.DeleteCategory)
 // UserController
 router.get('/admin/register',UserController.AdminRegister)
 router.post('/register',UserController.Register)
+router.post('/verify_login',UserController.Verify_login)
 
 module.exports = router
