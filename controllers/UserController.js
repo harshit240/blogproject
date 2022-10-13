@@ -49,7 +49,20 @@ class UserController{
         try{
             const{email,password}=req.body;
             if(email && password){
-
+                const user = await UserModel.findOne({email:email})
+                // console.log(user.password);
+                if(user != null){
+                    const isMatched = await bcrypt.compare(password,user.password)
+                    if((user.email === email) && isMatched){
+                        res.redirect('/admin/dashboard')
+                    }else{
+                        req.flash('error','Email or Password is not valid')
+                        return res.redirect('/login')
+                    }
+                }else{
+                    req.flash('error','You are not a registered user')
+                    return res.redirect('/login')
+                }
             }else{
                 req.flash('error','All Fields Required')
                     return res.redirect('/login')
