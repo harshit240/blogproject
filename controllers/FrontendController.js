@@ -29,7 +29,7 @@ class FrontendController{
                 phone:req.body.phone
             })
             await result.save()
-            console.log(req.body);
+            // console.log(req.body);
             res.redirect('front/home')
             
         }catch(err){
@@ -52,7 +52,7 @@ class FrontendController{
     static bloglist = async(req,res)=>{
         try{
             const blogs = await BlogModel.find()
-            console.log(blogs);
+            // console.log(blogs);
             res.render('front/bloglist',{r:blogs})
         }catch(err){
             console.log(err);
