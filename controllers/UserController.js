@@ -1,5 +1,6 @@
 const UserModel = require("../models/User")
 const bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
 
 class UserController{
     static AdminRegister=async(req,res)=>{
@@ -18,7 +19,7 @@ class UserController{
     }
     else{
         if(name && email && password && confirm_password){
-            if(password==confirm_password){
+            if(password == confirm_password){
                 try{
                     const hashpassword = await bcrypt.hash(password,10)
                     const result =await UserModel({
@@ -27,7 +28,7 @@ class UserController{
                         password:hashpassword
                     })
                     await result.save()
-                    req.flash('error','Registration Successful! Do login!')
+                    req.flash('message','Registration Successful! Do login!')
                     return res.redirect('/login')
                 }catch(err){
                     console.log(err);
@@ -54,6 +55,10 @@ class UserController{
                 if(user != null){
                     const isMatched = await bcrypt.compare(password,user.password)
                     if((user.email === email) && isMatched){
+                        //verfiy token
+                        var token = jwt.sign({ userId: user._id }, 'himanshu123');
+                        // console.log(token);
+                        res.cookie('token',token)
                         res.redirect('/admin/dashboard')
                     }else{
                         req.flash('error','Email or Password is not valid')

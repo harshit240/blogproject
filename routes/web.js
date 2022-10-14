@@ -4,7 +4,7 @@ const AdminController = require('../controllers/admin/AdminController')
 const FrontendController = require('../controllers/FrontendController')
 const CategorController = require('../controllers/admin/CategoryController')
 const UserController = require('../controllers/UserController')
-
+const CheckUserAuth = require('../middleware/auth')
 
 
 
@@ -23,7 +23,7 @@ router.post('/addcontact',FrontendController.addcontact)
 
 
 //Admin controller
-router.get('/admin/dashboard',AdminController.dashboard) // [ /=> Path ]
+router.get('/admin/dashboard',CheckUserAuth,AdminController.dashboard) // [ /=> Path ]
 router.get('/admin/blog',AdminController.blogs)
 router.get('/admin/addblogs',AdminController.addblogs)
 router.post('/admin/insert_blog',AdminController.insertblog)
