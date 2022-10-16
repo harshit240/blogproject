@@ -1,6 +1,6 @@
 const UserModel = require("../models/User")
 const bcrypt = require('bcrypt');
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 class UserController{
     static AdminRegister=async(req,res)=>{
@@ -22,7 +22,7 @@ class UserController{
             if(password == confirm_password){
                 try{
                     const hashpassword = await bcrypt.hash(password,10)
-                    const result =await UserModel({
+                    const result = await UserModel({
                         name:name,
                         email:email,
                         password:hashpassword
@@ -56,7 +56,7 @@ class UserController{
                     const isMatched = await bcrypt.compare(password,user.password)
                     if((user.email === email) && isMatched){
                         //verfiy token
-                        var token = jwt.sign({ userId: user._id }, 'himanshu123');
+                        const token = jwt.sign({ userId: user._id }, 'himanshu123');
                         // console.log(token);
                         res.cookie('token',token)
                         res.redirect('/admin/dashboard')
@@ -72,6 +72,15 @@ class UserController{
                 req.flash('error','All Fields Required')
                     return res.redirect('/login')
             }
+        }catch(err){
+            console.log(err);
+        }
+    }
+    
+    static Logout = async(req,res)=>{
+        try{
+            res.clearCookie('token')
+            res.redirect('/login')
         }catch(err){
             console.log(err);
         }

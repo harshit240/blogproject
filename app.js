@@ -6,10 +6,14 @@ const fileUpload = require("express-fileupload");
 //Temp file uploader
 app.use(fileUpload({useTempFiles: true}));
 //Required Cloudinary
-var cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary');
+const session = require('express-session')
+const flash = require('connect-flash');
 
-var session = require('express-session')
-var flash = require('connect-flash');
+//cookies
+const cookieParser = require('cookie-parser');
+app.use(cookieParser())
+
 //messages
 app.use(session({
     secret: 'secret',

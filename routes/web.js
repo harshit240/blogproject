@@ -24,13 +24,13 @@ router.post('/addcontact',FrontendController.addcontact)
 
 //Admin controller
 router.get('/admin/dashboard',CheckUserAuth,AdminController.dashboard) // [ /=> Path ]
-router.get('/admin/blog',AdminController.blogs)
-router.get('/admin/addblogs',AdminController.addblogs)
-router.post('/admin/insert_blog',AdminController.insertblog)
-router.get('/admin/blog_view/:id',AdminController.BlogView)
-router.get('/admin/blog_edit/:id',AdminController.BlogEdit)
-router.post('/admin/blog_update/:id',AdminController.BlogUpdate)
-router.get('/admin/delete_blog/:id',AdminController.DeleteBlog)
+router.get('/admin/blog',CheckUserAuth,AdminController.blogs)
+router.get('/admin/addblogs',CheckUserAuth,AdminController.addblogs)
+router.post('/admin/insert_blog',CheckUserAuth,AdminController.insertblog)
+router.get('/admin/blog_view/:id',CheckUserAuth,AdminController.BlogView)
+router.get('/admin/blog_edit/:id',CheckUserAuth,AdminController.BlogEdit)
+router.post('/admin/blog_update/:id',CheckUserAuth,AdminController.BlogUpdate)
+router.get('/admin/delete_blog/:id',CheckUserAuth,AdminController.DeleteBlog)
 
 
 
@@ -47,5 +47,6 @@ router.get('/admin/deletecategory/:id',CategorController.DeleteCategory)
 router.get('/admin/register',UserController.AdminRegister)
 router.post('/register',UserController.Register)
 router.post('/verify_login',UserController.Verify_login)
+router.get('/logout',UserController.Logout)
 
 module.exports = router
