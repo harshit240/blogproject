@@ -1,0 +1,56 @@
+<%- include('../../front/header.ejs') %>
+
+    <section class="dashboard-wrap mtb-40">
+        <div class="container">
+            <div class="body-content">
+                <div class="row">
+                    <div class="col-md-3">
+                        <%- include('../adminsidebar.ejs') %>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="dash-right">
+                            <div class="dash-header">
+                                <div class="dash-title">
+                                    <h1 style="color: #386576;">Blogs</h1>
+                                </div>
+                                <div class="dash-nav">
+                                    <a href="/admin/addcontact" class="btn btn-success" style="background-color: #ffa500; border: none;">Add Contact</a>
+                                </div>
+                            </div>
+                            <table class="table-bordered table-striped">
+                                <tr class=" table_heading text-white text-center">
+                                    <th>ID No.</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone No.</th>
+                                    <th>Message</th>
+                                </tr>
+                                <% d.forEach((item)=>{ %>
+                                    <tr>
+                                        <td>
+                                            <%= item._id %>
+                                        </td>
+                                        <td>
+                                            <%= item.name %>
+                                        </td>
+                                        <td>
+                                            <%= item.email %>
+                                        </td>
+                                        <td>
+                                            <%= item.phone %>
+                                        </td>
+                                        <td>
+                                            <%= item.message %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <%- include('../../front/footer.ejs') %>

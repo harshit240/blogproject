@@ -1,6 +1,6 @@
 const cloudinary = require('cloudinary').v2;
 const BlogModel = require('../../models/Blog') 
-
+const ContactModel = require('../../models/Contact')
 cloudinary.config({ 
     cloud_name: 'dqowaxfln', 
     api_key: '456697836426261', 
@@ -105,5 +105,33 @@ class AdminController{
             console.log(err);
         }
     }
+
+    // =================
+    //Contacts
+
+    static addcontact = async(req,res)=>{
+        try{
+            const result = new ContactModel({
+                name:req.body.name,
+                email:req.body.email,
+                phone:req.body.phone,
+                message:req.body.message,
+            })
+            await result.save()
+            // console.log(req.body);
+            res.redirect('/')
+            
+        }catch(err){
+            console.log(err);
+        }
+    }
+    
+    static ContactDisplay = async(req,res)=>{
+        const data = await ContactModel.find()
+        // console.log(data);
+        res.render('admin/contact/displaycontact',{d:data})
+    }
+
+    
 }
 module.exports = AdminController

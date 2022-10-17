@@ -20,22 +20,7 @@ class FrontendController{
         console.log(req.body);
         res.render('front/contact')
     }
-    static addcontact = async(req,res)=>{
-        try{
-            const result = new ContactModel({
-                name:req.body.title,
-                description:req.body.description,
-                email:req.body.email,
-                phone:req.body.phone
-            })
-            await result.save()
-            // console.log(req.body);
-            res.redirect('front/home')
-            
-        }catch(err){
-            console.log(err);
-        }
-    }
+    
     static blogdetail = async(req,res)=>{
         try{
             const category = await CategoryModel.find();

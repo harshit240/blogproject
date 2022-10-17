@@ -19,7 +19,6 @@ router.get('/login',FrontendController.login)
 router.get('/about',FrontendController.about)
 router.get('/blogdetail/:_id',FrontendController.blogdetail)
 router.get('/contact',FrontendController.contact)
-router.post('/addcontact',FrontendController.addcontact)
 
 
 //Admin controller
@@ -32,7 +31,9 @@ router.get('/admin/blog_edit/:id',CheckUserAuth,AdminController.BlogEdit)
 router.post('/admin/blog_update/:id',CheckUserAuth,AdminController.BlogUpdate)
 router.get('/admin/delete_blog/:id',CheckUserAuth,AdminController.DeleteBlog)
 
-
+//Contact
+router.post('/admin/addcontact',AdminController.addcontact)
+router.get('/admin/display_contact',AdminController.ContactDisplay)
 
 
 
