@@ -44,7 +44,7 @@ class UserController{
         }
     }
 
-    }
+}
 
     static Verify_login = async(req,res)=>{
         try{

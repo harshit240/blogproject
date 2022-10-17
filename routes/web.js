@@ -34,6 +34,8 @@ router.get('/admin/delete_blog/:id',CheckUserAuth,AdminController.DeleteBlog)
 
 
 
+
+
 //Admin category controller
 router.get('/admin/category',CategorController.CategoryDisplay)
 router.get('/admin/createcategory',CategorController.CreateCategory)
