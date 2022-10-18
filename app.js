@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 2300
 const web = require('./routes/web')
+const api = require('./routes/api')
 const fileUpload = require("express-fileupload");
 //Temp file uploader
 app.use(fileUpload({useTempFiles: true}));
@@ -39,7 +40,11 @@ connectDB()
 
 //routing
 app.use('/',web)
+//localhost:2300
 
+// API ROUTING
+app.use('/api',api)
+//localhost:2300/api
 
 // ejs setup(template)
 app.set('view engine','ejs')

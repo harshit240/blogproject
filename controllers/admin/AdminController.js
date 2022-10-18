@@ -11,7 +11,8 @@ cloudinary.config({
 class AdminController{
     
     static dashboard = async(req,res)=>{
-        res.render('admin/dashboard')
+        const{name,email}=req.data1;
+        res.render('admin/dashboard',{n:name,e:email})
     }
     static blogs = async(req,res)=>{
         const data = await BlogModel.find()
