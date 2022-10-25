@@ -3,12 +3,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 class UserController{
-    static AdminRegister=async(req,res)=>{
+
+    static AdminRegister = async(req,res)=>{
 
         res.render('admin/register',{message:req.flash('error')})
 
     }
+
     static Register=async(req,res)=>{
+        
     //    console.log(req.body);
     const{name,email,password,confirm_password}=req.body
     const admin = await UserModel.findOne({email:email})

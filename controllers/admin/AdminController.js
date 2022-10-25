@@ -41,7 +41,6 @@ class AdminController{
                     public_id: image_upload.public_id,
                     url: image_upload.secure_url,
                 },
-
             })
             //saving data
             await result.save()

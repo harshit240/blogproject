@@ -17,7 +17,7 @@ class FrontendController{
         res.render('front/about')
     }
     static contact = async(req,res)=>{
-        console.log(req.body);
+        // console.log(req.body);
         res.render('front/contact')
     }
     
