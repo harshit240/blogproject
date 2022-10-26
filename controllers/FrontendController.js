@@ -46,5 +46,6 @@ class FrontendController{
     static login = async(req,res)=>{
         res.render('front/login',{message:req.flash('message'),error:req.flash('error')}) //chngd
     }
+    
 }
 module.exports = FrontendController

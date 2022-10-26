@@ -52,4 +52,9 @@ router.post('/register',UserController.Register)
 router.post('/verify_login',UserController.Verify_login)
 router.get('/logout',UserController.Logout)
 
+
+// router.get('*',(req,res)=>{
+//     res.render('front/pagenotfound')
+// })
+
 module.exports = router

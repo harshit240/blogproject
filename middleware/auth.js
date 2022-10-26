@@ -19,4 +19,4 @@ const CheckUserAuth = async(req,res,next)=>{
 }
 
 module.exports= CheckUserAuth
-// middleware security ke liye user krte hai ye     REQUEST AND RESPONSE  ke bich kam krta hai
+// middleware security ke liye user krte hai yeah     REQUEST AND RESPONSE  ke bich kam krta hai
