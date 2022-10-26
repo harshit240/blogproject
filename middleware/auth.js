@@ -7,7 +7,8 @@ const CheckUserAuth = async(req,res,next)=>{
     if(!token){
         req.flash('error','Unauthorized user, Please Login!')
         return res.redirect('/login')
-    }else{
+    }
+    else{
         const verify_token = jwt.verify(token,'himanshu123')
         // console.log(verify_token);
         const data = await UserModel.findOne({_id:verify_token.userId})
