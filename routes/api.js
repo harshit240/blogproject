@@ -8,6 +8,8 @@ const router = express.Router()
 
 router.get('/blogs',BlogController.blogs)
 router.post('/blogInsert',BlogController.BlogInsert)
+router.get('/blogview/:id',BlogController.blogview)
+router.post('/blogupdate/:id',BlogController.blogupdate)
 
 
 module.exports = router;
