@@ -53,6 +53,7 @@ class BlogController {
     } catch (err) {
       console.log(err);
     }
-  };
+    
+  }
 }
 module.exports = BlogController;
