@@ -10,6 +10,7 @@ cloudinary.config({
 });
 
 class BlogController {
+  
   static blogs = async (req, res) => {
     try {
       const blogs = await BlogModel.find();
@@ -105,7 +106,7 @@ class BlogController {
   };
 
   static blogdelete = async (req, res) =>{
-    
+
   }
 }
 module.exports = BlogController;
