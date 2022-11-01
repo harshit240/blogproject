@@ -10,6 +10,7 @@ cloudinary.config({
 });
 
 class BlogController {
+
   static blogs = async (req, res) => {
     try {
       const blogs = await BlogModel.find();
@@ -116,11 +117,10 @@ class BlogController {
 
       //saving data
       await result.save();
-      res.status(200).send({
-        //update http code = 202
+      res.status(204).send({
+        //Delete http code = 204
         status: "success",
-        message: "Update Successfully 😃🍻",
-        Image: BlogImage_upload.secure_url,
+        message: "Delete Successfully 😃🍻"
       });
     } catch (err) {
       console.log(err);

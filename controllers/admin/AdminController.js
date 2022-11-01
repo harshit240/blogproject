@@ -106,7 +106,7 @@ class AdminController{
         }
     }
 
-    // =================
+    // ===================================
     //Contacts
 
     static addcontact = async(req,res)=>{
