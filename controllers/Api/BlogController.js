@@ -108,5 +108,6 @@ class BlogController {
   static blogdelete = async (req, res) =>{
 
   }
+  
 }
 module.exports = BlogController;
