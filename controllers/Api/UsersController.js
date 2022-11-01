@@ -70,7 +70,7 @@ class UsersController{
       static Logout = async (req, res) => {
         try {
           res.clearCookie("token");
-          res.send({ status: "success", message: "Logout successfully" });
+          res.send({ status: "success", message: "Logout successfull 😃🍻" });
         } catch (err) {
           console.log(err);
         }
