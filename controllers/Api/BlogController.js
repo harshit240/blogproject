@@ -106,7 +106,7 @@ class BlogController {
   };
 
   static blogdelete = async (req, res) =>{
-
+    
   }
   
 }
