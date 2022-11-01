@@ -10,7 +10,6 @@ cloudinary.config({
 });
 
 class BlogController {
-  
   static blogs = async (req, res) => {
     try {
       const blogs = await BlogModel.find();
@@ -95,7 +94,30 @@ class BlogController {
       });
       //saving data
       await update.save();
-      res.status(202).send({   //update http code = 202
+      res.status(202).send({
+        //update http code = 202
+        status: "success",
+        message: "Update Successfully 😃🍻",
+        Image: BlogImage_upload.secure_url,
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  static blogdelete = async (req, res) => {
+    try {
+      const user = await BlogModel.findById(req.params.id);
+      const image_id = user.image.public_id;
+      // console.log(image_id);
+      await cloudinary.uploader.destroy(image_id);
+      const result = await BlogModel.findByIdAndDelete(req.params.id);
+
+      //saving data
+      await result.save();
+      res.status(200).send({
+        //update http code = 202
         status: "success",
         message: "Update Successfully 😃🍻",
         Image: BlogImage_upload.secure_url,
@@ -104,18 +126,5 @@ class BlogController {
       console.log(err);
     }
   };
-
-  static blogdelete = async (req, res) =>{
-    try{
-      const user = await BlogModel.findById(req.params.id)
-            const image_id = user.image.public_id;
-            // console.log(image_id);
-            await cloudinary.uploader.destroy(image_id)
-            const result = await BlogModel.findByIdAndDelete(req.params.id)
-    }catch(err){
-      console.log(err);
-    }
-  }
-  
 }
 module.exports = BlogController;
