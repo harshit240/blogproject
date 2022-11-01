@@ -95,7 +95,7 @@ class BlogController {
       });
       //saving data
       await update.save();
-      res.status(201).send({
+      res.status(202).send({   //update http code = 202
         status: "success",
         message: "Update Successfully 😃🍻",
         Image: BlogImage_upload.secure_url,
