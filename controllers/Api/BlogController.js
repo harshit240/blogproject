@@ -117,8 +117,7 @@ class BlogController {
 
       //saving data
       await result.save();
-      res.status(204).send({
-        //Delete http code = 204
+      res.status(200).send({
         status: "success",
         message: "Delete Successfully 😃🍻"
       });
