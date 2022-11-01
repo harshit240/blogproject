@@ -59,7 +59,7 @@ class UsersController{
                 res.send({ status: "failed", message: "You are not registered user😓" });
             }
           } else {
-            res.send({ status: "failed", message: "All Fiels are required😓" });
+            res.send({ status: "failed", message: "All Fiels are required1😓" });
           }
         } catch (err) {
           console.log(err);
