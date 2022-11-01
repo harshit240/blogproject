@@ -106,7 +106,15 @@ class BlogController {
   };
 
   static blogdelete = async (req, res) =>{
-    
+    try{
+      const user = await BlogModel.findById(req.params.id)
+            const image_id = user.image.public_id;
+            // console.log(image_id);
+            await cloudinary.uploader.destroy(image_id)
+            const result = await BlogModel.findByIdAndDelete(req.params.id)
+    }catch(err){
+      console.log(err);
+    }
   }
   
 }
