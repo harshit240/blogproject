@@ -23,9 +23,8 @@ class UsersController{
                   email: email,
                   password: hashpassword,
                 })
-
                 await result.save();
-                res.send({ status: 201, message: "Registration Successfully!😓" });
+                res.send({ status: 201, message: "Registration Successfully! 😃🍻" });
               }catch (err) {
                 console.log(err);
               }
