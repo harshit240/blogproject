@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 class UserController {
+  
   static AdminRegister = async (req, res) => {
     res.render("admin/register", { message: req.flash("error") });
   };

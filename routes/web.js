@@ -11,6 +11,10 @@ const CheckUserAuth = require('../middleware/auth')
 
 
 
+
+
+
+
 //Front end controller
 router.get('/',FrontendController.home)
 router.get('/home',FrontendController.home)
