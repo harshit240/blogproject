@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schema({ // Blogschema => object
+const UserSchema = new mongoose.Schema({ // UserSchema => object
     name:{   // Field
         type:String,
         Required:true
