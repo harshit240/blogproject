@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({ // Blogschema => object
         Required:true
     }
 },{timestamps:true})
-const UserModel = mongoose.model('user',UserSchema)  //UserModel => model and blog => collection 
+const UserModel = mongoose.model('user',UserSchema)  //UserModel => model and user => collection 
 
 module.exports=UserModel
 
