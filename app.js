@@ -23,9 +23,9 @@ app.use(session({
     cookie: { maxAge: 60000 },
     resave: false,
     saveUninitialized: false,
-    
   }));
-  app.use(flash());
+//Flash messages
+app.use(flash());
 
 //Body-Parse require
 const bodyParser = require('body-parser')
