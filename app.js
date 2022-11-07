@@ -1,6 +1,8 @@
 const express = require('express')
+const path = require('path')
+const hbs = require('hbs')
 const app = express()
-const port = 2300
+const port = process.env.PORT || 3000
 const web = require('./routes/web')
 const api = require('./routes/api')
 const fileUpload = require("express-fileupload");
@@ -62,5 +64,5 @@ app.use(express.static('public'))
 
 // Server
 app.listen(port,()=>{
-    console.log(`Server is running on http://localhost:${port}`)
+    console.log(`listening to the port at ${port}`)
 })
