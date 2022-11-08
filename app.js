@@ -7,7 +7,6 @@ const web = require('./routes/web')
 const api = require('./routes/api')
 const fileUpload = require("express-fileupload");
 
-
 //Temp file uploader
 app.use(fileUpload({useTempFiles: true}));
 //Required Cloudinary
