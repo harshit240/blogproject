@@ -24,38 +24,36 @@ class BlogController {
   };
 
   static BlogInsert = async (req, res) => {
-    // console.log(req.body);
-    // console.log(req.files);
-    const Blogimages = req.files.image;
-    // console.log(imagefile);
-    const BlogImage_upload = await cloudinary.uploader.upload(
-      Blogimages.tempFilePath,
-      {
-        folder: "blog_images",
+    // console.log(req.body)
+    //  console.log(req.files)
+    const Blogimage = req.files.image
+    //    console.log(imagefile)
+    const BlogImage_upload = await cloudinary.uploader.upload(Blogimage.tempFilePath, {
+        folder: "blog_image",
         width: 400,
-      }
-    );
-
+    })
     try {
-      const result = new BlogModel({
-        title: req.body.title,
-        description: req.body.description,
-        image: {
-          public_id: BlogImage_upload.public_id,
-          url: BlogImage_upload.secure_url,
-        },
-      });
-      //saving data
-      await result.save();
-      res.status(201).send({
-        status: "success",
-        message: "Registration Successfully 😃🍻",
-        Image: BlogImage_upload.secure_url,
-      });
+        const result = new BlogModel({
+            title: req.body.title,
+            description: req.body.description,
+            image: {
+                public_id: BlogImage_upload.public_id,
+                url: BlogImage_upload.secure_url,
+            }
+
+        })
+        //saving data
+        await result.save()
+        res.status(201)
+            .send({
+                status: "success",
+                message: "registration Successfully 😃🍻",
+                Image: BlogImage_upload.secure_url,
+            })
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
-  };
+  }
 
   static blogview = async (req, res) => {
     try {
@@ -101,7 +99,6 @@ class BlogController {
         message: "Update Successfully 😃🍻",
         Image: BlogImage_upload.secure_url,
       });
-
     } catch (err) {
       console.log(err);
     }
@@ -119,11 +116,11 @@ class BlogController {
       await result.save();
       res.status(200).send({
         status: "success",
-        message: "Delete Successfully 😃🍻"
+        message: "Delete Successfully 😃🍻",
       });
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 }
 module.exports = BlogController;

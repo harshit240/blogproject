@@ -11,9 +11,10 @@ cloudinary.config({
 class AdminController{
     
     static dashboard = async(req,res)=>{
-        const{name,email}=req.data1;
+        const{name,email}=req.data1; //Destructuring assignement(ES6 feature)
         res.render('admin/dashboard',{n:name,e:email})
     }
+
     static blogs = async(req,res)=>{
         const data = await BlogModel.find()
         // console.log(data);
@@ -23,6 +24,7 @@ class AdminController{
     static addblogs = async(req,res)=>{
         res.render('admin/blog/addblogs')
     }
+
     static insertblog = async(req,res)=>{
         // console.log(req.body);
         // console.log(req.files);
@@ -49,6 +51,7 @@ class AdminController{
             console.log(err);
         }
     }
+
     static BlogView = async(req,res)=>{
         // console.log(req.params.id); 
         try{
@@ -59,12 +62,14 @@ class AdminController{
             console.log(err);
         }
     }
+
     static BlogEdit = async(req,res)=>{
         // console.log(req.params.id); 
         const data = await BlogModel.findById(req.params.id)
-        // console.log(data);
+        console.log(data);
         res.render('admin/blog/blogedit',{editdata:data})
     }
+
     static BlogUpdate = async(req,res)=>{
         // console.log(req.body);
         // console.log(req.params.id);
@@ -93,6 +98,7 @@ class AdminController{
             console.log(err);  
         }
     }
+    
     static DeleteBlog = async(req,res)=>{
         try{
             const user = await BlogModel.findById(req.params.id)

@@ -53,18 +53,18 @@ class UsersController{
                 res.cookie("token", token);
                 res.send({ status: "success", message: "login successfully with web token 😃🍻", "Token": token });
               } else {
-                res.send({ status: "failed", message: "Email or Password is not Valid😓" });
+                res.send({ status: "failed", message: "Email or Password is not Valid 😓" });
               }
             } else {
-                res.send({ status: "failed", message: "You are not registered user😓" });
+                res.send({ status: "failed", message: "You are not registered user 😓" });
             }
           } else {
-            res.send({ status: "failed", message: "All Fiels are required1😓" });
+            res.send({ status: "failed", message: "All Fiels are required 😓" });
           }
         } catch (err) {
           console.log(err);
         }
-      }
+    }
 
       static Logout = async (req, res) => {
         try {
