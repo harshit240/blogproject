@@ -3,7 +3,7 @@ const app = express()
 // const port = process.env.PORT || 3000
 const cors = require('cors')
 const dotenv = require('dotenv')
-dotenv.config({path:'.env'})
+dotenv.config();
 const web = require('./routes/web')
 const api = require('./routes/api')
 const fileUpload = require("express-fileupload");
