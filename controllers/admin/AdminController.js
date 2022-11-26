@@ -66,7 +66,7 @@ class AdminController{
     static BlogEdit = async(req,res)=>{
         // console.log(req.params.id); 
         const data = await BlogModel.findById(req.params.id)
-        console.log(data);
+        // console.log(data);
         res.render('admin/blog/blogedit',{editdata:data})
     }
 
