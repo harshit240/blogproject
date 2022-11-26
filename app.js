@@ -12,7 +12,7 @@ const fileUpload = require("express-fileupload");
 app.use(fileUpload({useTempFiles: true}));
 //Required Cloudinary
 const cloudinary = require('cloudinary');
-const session = require('express-session')
+const session = require('cookie-session')
 const flash = require('connect-flash');
 
 //cookies
