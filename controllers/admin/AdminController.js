@@ -16,9 +16,9 @@ class AdminController{
     }
 
     static blogs = async(req,res)=>{
-        const data = await BlogModel.find()
-        // console.log(data);
-        res.render('admin/blog/blogdisplay',{d:data})
+        const blogs = await BlogModel.find({user:req.data1._id})
+        // console.log(blogs);
+        res.render('admin/blog/blogdisplay',{d:blogs})
     }
 
     static addblogs = async(req,res)=>{
@@ -39,6 +39,7 @@ class AdminController{
             const result = new BlogModel({
                 title:req.body.title,
                 description:req.body.description,
+                user:req.data1._id,
                 image: {
                     public_id: image_upload.public_id,
                     url: image_upload.secure_url,

@@ -44,7 +44,11 @@ class FrontendController{
         }
     }
     static login = async(req,res)=>{
-        res.render('front/login',{message:req.flash('message'),error:req.flash('error')}) //chngd
+        if (req.cookies.token) {
+            res.redirect("/admin/dashboard");
+        } else {
+            res.render('front/login',{message:req.flash('message'),error:req.flash('error')}) //chngd
+        }
     }
     
 }

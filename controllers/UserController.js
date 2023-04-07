@@ -53,9 +53,7 @@ class UserController {
           const isMatched = await bcrypt.compare(password, user.password);
           if (user.email === email && isMatched) {
             //verfiy token
-            const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY,{
-              expiresIn:'20m'
-            });
+            const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY);
             // console.log(token);
             res.cookie("token", token);
             res.redirect("/admin/dashboard");

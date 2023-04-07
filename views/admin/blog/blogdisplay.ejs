@@ -25,10 +25,11 @@
                                     <th>Image</th>
                                     <th>Action</th>
                                 </tr>
+                                <% var i = 1 %>
                                 <% d.forEach((item)=>{ %>
                                     <tr>
                                         <td>
-                                            <%= item._id %>
+                                            <%= i++ %>
                                         </td>
                                         <td>
                                             <%= item.title %>

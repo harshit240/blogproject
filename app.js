@@ -1,24 +1,24 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 // const port = process.env.PORT || 3000
-const cors = require('cors')
-const dotenv = require('dotenv')
+const cors = require('cors');
+const dotenv = require('dotenv');
 dotenv.config();
-const web = require('./routes/web')
-const api = require('./routes/api')
+const web = require('./routes/web');
+const api = require('./routes/api');
 const fileUpload = require("express-fileupload");
 
 //Temp file uploader
 app.use(fileUpload({useTempFiles: true}));
 //Required Cloudinary
 const cloudinary = require('cloudinary');
-const session = require('cookie-session')
+const session = require('cookie-session');   // Change the require session from express to cookie session
 const flash = require('connect-flash');
 
 //cookies
 const cookieParser = require('cookie-parser');
-app.use(cookieParser())
-app.use(cors())
+app.use(cookieParser());
+app.use(cors());
 
 //messages
 app.use(session({
@@ -31,17 +31,17 @@ app.use(session({
 app.use(flash());
 
 //Body-Parse require
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 
 //Database connection
 const connectDB = require('./db/connectdb')
-connectDB()
+connectDB();
 
 //routing
 app.use('/',web)
@@ -63,6 +63,6 @@ app.use(express.static('public'))
 
 // Server
 app.listen(process.env.PORT,()=>{
-    console.log(`listening to the port at ${process.env.PORT}`) //${port} ==> template literals, 
-    // `` ==> Back ticks(use for multiline string)
+    console.log(`listening to the port at http://localhost:${process.env.PORT}`) //${port} ==> template literals, 
+    // `` ==> Back ticks (use for multi-line string)
 })
