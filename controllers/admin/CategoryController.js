@@ -3,7 +3,7 @@ const CategoryModel = require('../../models/Category')
 
 class CategoryController{
     static CategoryDisplay = async(req,res)=>{
-        const data = await CategoryModel.find()
+        const data = await CategoryModel.find({user:req.data1._id})
         // console.log(data);
         res.render('admin/category/categorydisplay',{d:data})
     }
@@ -20,12 +20,14 @@ class CategoryController{
 
     static CategoryInsert = async(req,res)=>{
         // console.log(req.body);
+        console.log(req.data1)
         try{
             const result = new CategoryModel({
                 title:req.body.title,
                 description:req.body.description,
                 name:req.body.name,
-                email:req.body.email
+                email:req.body.email,
+                user:req.data1._id,
             })
             await result.save()
             res.redirect('/admin/category')  // ' ' => route url

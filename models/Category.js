@@ -16,6 +16,9 @@ const Categoryschema = new mongoose.Schema({ // Categoryschema => object
     email:{  // Fields
         type:String,
         Required:true
+    },
+    user:{  // Fields
+        type:String,
     }
 },{timestamps:true})
 const CategoryModel = mongoose.model('category',Categoryschema)  //CategoryModel => model and blog => collection 

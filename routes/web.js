@@ -40,13 +40,13 @@ router.post('/admin/addcontact',AdminController.addcontact);
 router.get('/admin/display_contact',AdminController.ContactDisplay);
 
 //Admin category controller
-router.get('/admin/category',CategorController.CategoryDisplay);
-router.get('/admin/createcategory',CategorController.CreateCategory);
-router.post('/admin/categoryinsert',CategorController.CategoryInsert)
-router.get('/admin/viewcategory/:id',CategorController.viewcategory);
-router.get('/admin/Editcategory/:id',CategorController.EditCategory);
-router.post('/admin/updatecategory/:id',CategorController.UpdateCategory);
-router.get('/admin/deletecategory/:id',CategorController.DeleteCategory);
+router.get('/admin/category',CheckUserAuth,CategorController.CategoryDisplay);
+router.get('/admin/createcategory',CheckUserAuth,CategorController.CreateCategory);
+router.post('/admin/categoryinsert',CheckUserAuth,CategorController.CategoryInsert)
+router.get('/admin/viewcategory/:id',CheckUserAuth,CategorController.viewcategory);
+router.get('/admin/Editcategory/:id',CheckUserAuth,CategorController.EditCategory);
+router.post('/admin/updatecategory/:id',CheckUserAuth,CategorController.UpdateCategory);
+router.get('/admin/deletecategory/:id',CheckUserAuth,CategorController.DeleteCategory);
 
 // UserController
 router.get('/admin/register',UserController.AdminRegister);
