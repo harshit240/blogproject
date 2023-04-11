@@ -20,7 +20,6 @@ class CategoryController{
 
     static CategoryInsert = async(req,res)=>{
         // console.log(req.body);
-        console.log(req.data1)
         try{
             const result = new CategoryModel({
                 title:req.body.title,
