@@ -26,7 +26,12 @@ body::-webkit-scrollbar-corner{
 }
 .bg-blue {background-color:#007EDB;}
 .navbar{
-    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #003a50c7;
+    right: 0;
+    z-index: 126;
 }
 .navbar-brand img { height:30px; }
 .navbar-dark .navbar-nav .nav-link {font-weight: bold;color:#fff; font-size: 18px; padding-right: 40px;}
